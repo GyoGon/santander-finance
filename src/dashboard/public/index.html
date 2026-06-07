@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finanzas Santander</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>💳 Mis Finanzas</h1>
+    <button id="btn-sync">🔄 Sincronizar</button>
+    <span id="last-sync"></span>
+  </header>
+
+  <main>
+    <section id="card-section">
+      <h2>Tarjeta de Crédito</h2>
+      <div class="metrics">
+        <div class="metric warn"><label>Gastado (total)</label><span id="card-total">—</span></div>
+        <div class="metric ok"><label>Solo tú</label><span id="card-own">—</span></div>
+        <div class="metric"><label>Deudores te deben</label><span id="card-debtors-owe">—</span></div>
+      </div>
+    </section>
+
+    <section id="loan-section">
+      <h2>💰 Crédito de Consumo</h2>
+      <div class="metrics">
+        <div class="metric"><label>Saldo Restante</label><span id="loan-balance">—</span></div>
+        <div class="metric"><label>Cuota Mensual</label><span id="loan-payment">—</span></div>
+        <div class="metric"><label>Cuotas Restantes</label><span id="loan-remaining">—</span></div>
+        <div class="metric"><label>Se liquida</label><span id="loan-payoff">—</span></div>
+      </div>
+      <div id="loan-due" class="alert hidden"></div>
+    </section>
+
+    <section id="commitment-section">
+      <h2>📊 Compromiso Mensual Total</h2>
+      <div class="commitment-row"><span>Tarjeta (solo tú)</span><span id="cmt-card">—</span></div>
+      <div class="commitment-row"><span>+ Cuota crédito</span><span id="cmt-loan">—</span></div>
+      <div class="commitment-total"><span>Total este mes</span><span id="cmt-total">—</span></div>
+    </section>
+
+    <section id="debtors-section">
+      <h2>👥 ¿Quién te debe?</h2>
+      <div id="debtors-list"></div>
+    </section>
+
+    <section id="transactions-section">
+      <h2>Transacciones</h2>
+      <div id="tx-list"></div>
+    </section>
+  </main>
+
+  <div id="split-modal" class="modal hidden">
+    <div class="modal-body">
+      <h3>Dividir gasto</h3>
+      <p id="modal-tx-desc"></p>
+      <div id="split-rows"></div>
+      <button id="add-debtor-btn">+ Agregar persona</button>
+      <div class="modal-actions">
+        <button id="save-split-btn">Guardar</button>
+        <button id="cancel-split-btn">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
